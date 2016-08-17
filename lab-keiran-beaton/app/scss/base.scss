@@ -1,4 +1,5 @@
-@import "_theme";
+@import "./lib/theme";
+@import "./vendor/normalize";
 
 html, body {
   width: 100%;
