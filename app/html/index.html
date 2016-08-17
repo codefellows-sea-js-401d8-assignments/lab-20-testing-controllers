@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+  <head>
+    <title> create player </title>
+    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="bundle.css">
+  </head>
+  <body>
+    <main ng-controller="PlayerController" ng-init="playerCtrl.class='stealth';playerCtrl.player.name='Johnny'">
+      <form ng-submit ="playerCtrl.signUp()"
+      novalidate name="createPlayerForm">
+        <label for="name">Name:</label>
+        <input name="name" type="text" ng-model="playerCtrl.player.name">
+
+        <label for="email"> Email: </label>
+        <input name="email" type="email" ng-model="playerCtrl.player.email">
+
+        <label for class="Class"></label>
+        <select name="class" ng-model="playerCtrl.player.class">
+          <option ng-repeat="item in playerCtrl.classes" value="{{item}}"> {{item}}</option>
+        </select>
+
+        <button type="submit"> Sign up </button>
+        </form>
+        <section ng-show="playerCtrl.isDone">
+          <h2> player: {{playerCtrl.player.name}} </h2>
+          <p>email: {{playerCtrl.player.email}}</p>
+          <p> Class: {{playerCtrl.player.class}}</p>
+    </main>
+    <!-- <h1> Create Player </h1> -->
+  </body>
+</html>
