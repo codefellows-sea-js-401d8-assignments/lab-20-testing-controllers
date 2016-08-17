@@ -2,6 +2,7 @@
 # Created by https://www.gitignore.io/api/windows,node
 
 node_modules
+build
 
 ### Windows ###
 # Windows image file caches
