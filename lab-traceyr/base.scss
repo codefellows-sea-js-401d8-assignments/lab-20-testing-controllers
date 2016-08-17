@@ -1,0 +1,11 @@
+@import './vendor/normalize';
+@import './theme';
+
+body {
+  background-color: $app-default;
+  color: $app-light;
+}
+
+// form {
+//   background-color: $accent-color;
+// }
