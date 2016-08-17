@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="gameApp">
+  <head>
+    <title>create player</title>
+    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="bundle.css">
+  </head>
+  <body>
+    <h1>Create Player</h1>
+    <main
+    ng-controller="GameController">
+
+      <label for="createPlayerForm">Make a Player</label>
+      <form
+      novalidate
+      name="createPlayerForm"
+      ng-hide="gameController.playerExist"
+      ng-submit="gameController.createPlayer(createPlayerForm.player.name, createPlayerForm.player.faction, createPlayerForm.player.race, createPlayerForm.player.playerClass)">
+
+        <label for="name">Name</label>
+        <input name="name" type="text" ng-model="createPlayerForm.player.name">
+
+        <label for="faction">Faction</label>
+        <select name="faction" ng-model="createPlayerForm.player.faction">
+          <option ng-repeat="item in gameController.factions" value="{{item}}">{{ item }}</option>
+        </select>
+
+        <label for="race">Race</label>
+        <select name="race" ng-model="createPlayerForm.player.race">
+          <option ng-repeat="item in gameController.races" value="{{item}}">{{ item }}</option>
+        </select>
+
+        <label for="playerClass">Class</label>
+        <select name="playerClass" ng-model="createPlayerForm.player.playerClass">
+          <option ng-repeat="item in gameController.playerClasses" value="{{item}}">{{ item }}</option>
+        </select>
+
+        <button type='submit'>Hit it</button>
+      </form>
+
+      <section ng-show="gameController.playerExist">
+        <h2>Player: {{ gameController.player.name }}</h2>
+        <p>Faction: {{ gameController.player.faction }}</p>
+        <p>Race: {{ gameController.player.race }}</p>
+        <p>Class: {{ gameController.player.playerClass }}</p>
+      </section>
+
+      <label for="createMonsterForm">Make a Monster</label>
+      <form
+      novalidate
+      name="createMonsterForm"
+      ng-hide="gameController.monsterExist"
+      ng-submit="gameController.createMonster(createMonsterForm.monster.name, createMonsterForm.monster.type, createMonsterForm.monster.hp)">
+
+        <label for="name">Name</label>
+        <input name="name" type="text" ng-model="createMonsterForm.monster.name">
+
+        <label for="type">Type</label>
+        <input name="type" type="type" ng-model="createMonsterForm.monster.type">
+
+        <label for="hp">HP</label>
+        <input name="hp" type="text" ng-model="createMonsterForm.monster.hp">
+        <button type='submit'>Hit it</button>
+      </form>
+
+      <section ng-show="gameController.monsterExist">
+        <h2>Monster: {{ gameController.monster.name }}</h2>
+        <p>Type: {{ gameController.monster.type }}</p>
+        <p>HP: {{ gameController.monster.hp }}</p>
+      </section>
+    </main>
+
+  </body>
+</html>
