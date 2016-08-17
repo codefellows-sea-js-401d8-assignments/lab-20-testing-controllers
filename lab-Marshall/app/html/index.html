@@ -11,7 +11,7 @@
       <h1> Choose your own adventure! </h1>
     </header>
 
-    <main ng-controller="GameController" ng-init="playerCtrl.player.class='slime'">
+    <main ng-controller="GameController">
       <h2 ng-hide="playerCtrl.isDone">Select your player character!</h2>
       <form novalidate ng-submit="playerCtrl.signUp(createPlayerForm.player)" ng-hide="playerCtrl.isDone" name="createPlayerForm">
         <label for="name">Name:</label>
@@ -20,10 +20,10 @@
         <label for="email">Email:</label>
         <input type="text" name="email" ng-model="createPlayerForm.player.email">
 
-        <label for="class">Class:</label>
-        <select name="class" ng-model="createPlayerForm.player.class">
+        <label for="classes">Class:</label>
+        <select name="classes" ng-model="createPlayerForm.player.classes" ng-init="createPlayerForm.player.classes='Intern'">
           <option ng-repeat="item in playerCtrl.classes" value="{{item}}">
-            {{ item }}
+            {{item}}
           </option>
         </select>
 
@@ -36,9 +36,9 @@
         <input type="text" name="name" ng-model="createMonsterForm.monster.name">
 
         <label for="species">Species:</label>
-        <select name="species" ng-model="createMonsterForm.monster.species">
+        <select name="species" ng-model="createMonsterForm.monster.species" ng-init="createMonsterForm.monster.species='Several Chickens'">
           <option ng-repeat="item in monsterCtrl.species" value="{{item}}">
-            {{ item }}
+            {{item}}
           </option>
         </select>
 

@@ -20,7 +20,7 @@ module.exports = function(config) {
     files: [
       'app/entry.js',
       'test/*-test.js',
-      'node_modules/angular_mocks/angular_mocks.js'
+      'node_modules/angular-mocks/angular-mocks.js'
     ],
 
 
@@ -34,7 +34,7 @@ module.exports = function(config) {
     webpack: webpackConfig,
     preprocessors: {
       'app/entry.js': ['webpack'],
-      'test/*-test.js': ['bable']
+      'test/*-test.js': ['babel']
     },
 
 

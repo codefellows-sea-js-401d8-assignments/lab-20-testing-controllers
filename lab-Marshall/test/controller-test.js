@@ -5,7 +5,7 @@ describe('testing controller', function(){
     angular.mock.module('demoApp');
     angular.mock.inject(($controller, $rootScope) => {
       this.scope = $rootScope.$new();
-      new $controller('PlayerController', {$scope: this.scope});
+      new $controller('GameController', {$scope: this.scope});
     });
   });
 
@@ -13,5 +13,10 @@ describe('testing controller', function(){
     console.log('this.scope', this.scope);
     this.scope.playerCtrl.signUp({name: 'goo'})
     expect(this.scope.playerCtrl.player.name).toBe('goo');
+  });
+
+  it('should create a new monster on submit', () => {
+    this.scope.monsterCtrl.submit({name: 'Ultra Lord'})
+    expect(this.scope.monsterCtrl.monster.name).toBe('Ultra Lord')
   });
 });
