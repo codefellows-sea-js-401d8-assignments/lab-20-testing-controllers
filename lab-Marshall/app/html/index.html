@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+  <head>
+    <title> Choose your own adventure! </title>
+    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="bundle.css">
+  </head>
+
+  <body>
+    <header>
+      <h1> Choose your own adventure! </h1>
+    </header>
+
+    <main ng-controller="GameController">
+      <h2 ng-hide="playerCtrl.isDone">Select your player character!</h2>
+      <form novalidate ng-submit="playerCtrl.signUp(createPlayerForm.player)" ng-hide="playerCtrl.isDone" name="createPlayerForm">
+        <label for="name">Name:</label>
+        <input type="text" name="name" ng-model="createPlayerForm.player.name">
+
+        <label for="email">Email:</label>
+        <input type="text" name="email" ng-model="createPlayerForm.player.email">
+
+        <label for="classes">Class:</label>
+        <select name="classes" ng-model="createPlayerForm.player.classes" ng-init="createPlayerForm.player.classes='Intern'">
+          <option ng-repeat="item in playerCtrl.classes" value="{{item}}">
+            {{item}}
+          </option>
+        </select>
+
+        <button type="submit"> Sign Up </button>
+      </form>
+
+      <h2 ng-hide="monsterCtrl.isDone">Select your monster!</h2>
+      <form novalidate ng-submit="monsterCtrl.submit(createMonsterForm.monster)" ng-hide="monsterCtrl.isDone" name="createMonsterForm">
+        <label for="name">Name:</label>
+        <input type="text" name="name" ng-model="createMonsterForm.monster.name">
+
+        <label for="species">Species:</label>
+        <select name="species" ng-model="createMonsterForm.monster.species" ng-init="createMonsterForm.monster.species='Several Chickens'">
+          <option ng-repeat="item in monsterCtrl.species" value="{{item}}">
+            {{item}}
+          </option>
+        </select>
+
+        <button type="submit"> Submit Monster </button>
+      </form>
+
+      <h2 ng-show="monsterCtrl.isDone"> You have finished your selections! </h2>
+
+      <section ng-show="playerCtrl.isDone">
+        <h3> Player: {{ playerCtrl.player.name }} </h2>
+        <p> Email: {{ playerCtrl.player.email }} </p>
+        <p> Class: {{ playerCtrl.player.class }} </p>
+      </section>
+
+      <section ng-show="monsterCtrl.isDone">
+        <h3>Monster: {{ monsterCtrl.monster.name }} </h2>
+        <p>Species: {{ monsterCtrl.monster.species }}</p>
+      </section>
+    </main>
+
+  </body>
+</html>
