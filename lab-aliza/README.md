@@ -6,6 +6,6 @@
 - install dependencies: `npm i`  
 - run: `webpack`  
 - run watch with: `npm run watch`  
-- in your browser, open `localhost:8080` and tell the cow what to say...  
+- in your browser, open `localhost:8080` and set up your player and monster...  
 - run linter with: `npm run lint`  
 - run karmer with: `karma start`  
