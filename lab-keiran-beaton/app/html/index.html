@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="gameApp">
+  <head>
+    <title>Monster vs Player Game</title>
+    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="bundle.css">
+  </head>
+  <body>
+    <main ng-controller="GameController">
+
+      <form ng-submit="gameCtrl.createPlayer(createPlayerForm.player)" ng-hide="gameCtrl.playerDone" novalidate name="createPlayerForm">
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" ng-model="createPlayerForm.player.name">
+
+        <label for="username">Username:</label>
+        <input type="text" name="username" ng-model="createPlayerForm.player.username">
+
+        <label for="class">Class:</label>
+        <select name="class" ng-model="createPlayerForm.player.class" ng-init="createPlayerForm.player.class ='Dentist'">
+          <option ng-repeat="item in gameCtrl.classes" value="{{item}}">{{item}}</option>
+        </select>
+
+        <button type="submit"> Create Player </button>
+
+      </form>
+
+      <form ng-submit="gameCtrl.createMonster(createMonsterForm.monster)" ng-hide="gameCtrl.monsterDone" novalidate name="createMonsterForm">
+
+        <label for="type">Monster:</label>
+        <select name="type" ng-model="createMonsterForm.monster.type" ng-init="createMonsterForm.monster.type='Wolfman'">
+          <option ng-repeat="item in gameCtrl.monsterTypes" value="{{item}}">{{item}}</option>
+        </select>
+
+        <label for="monsterName">Monster Name:</label>
+        <input type="text" name="monsterName" ng-model="createMonsterForm.monster.monsterName">
+
+        <button type="submit"> Create Monster </button>
+
+      </form>
+
+      <section ng-show="gameCtrl.playerDone">
+        <h2>Player: {{gameCtrl.player.username}}</h2>
+        <p>Name: {{gameCtrl.player.name}}</p>
+        <p>Class: {{gameCtrl.player.class}}</p>
+      </section>
+
+      <section ng-show="gameCtrl.monsterDone">
+        <h2>{{gameCtrl.monster.monsterName}} the {{gameCtrl.monster.type}}</h2>
+      </section>
+
+    </main>
+  </body>
+</html>
