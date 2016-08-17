@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="gameApp">
+
+<head>
+    <title>Players and Monsters and Angular, Oh My!</title>
+    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="bundle.css">
+</head>
+
+<body>
+    <main ng-controller="GameController">
+        <section>
+            <h1>Create A Player</h1>
+            <form name="playerForm" ng-submit="gameCtrl.createPlayer(playerForm.player)" ng-hide="gameCtrl.player.created" novalidate>
+                <label for="name">Player Name:</label>
+                <input name="name" type="text" ng-model="playerForm.player.name">
+
+                <label for="superpower">Superpower:</label>
+                <input name="superpower" type=text ng-model="playerForm.player.superpower">
+
+                <button type="submit">Create Player Now</button>
+            </form>
+        </section>
+        <content ng-show="gameCtrl.player.created">
+            <h2>Player Name: {{gameCtrl.player.name}}</h2>
+            <h3>Player Superpower: {{gameCtrl.player.superpower}}</h3>
+        </content>
+
+        <section>
+            <h1>Create a Monster</h1>
+            <form name="monsterForm" ng-submit="gameCtrl.createMonster(monsterForm.monster)" ng-hide="gameCtrl.monster.created" novalidate>
+                <label for="name">Monster Name:</label>
+                <input name="name" type="text" ng-model="monsterForm.monster.name">
+
+                <label for="type">Monster Type:</label>
+                <input name="type" type="text" ng-model="monsterForm.monster.type">
+
+                <button type="submit">Create Monster Now</button>
+            </form>
+        </section>
+        <content ng-show="gameCtrl.monster.created">
+            <h2>Monster Name: {{gameCtrl.monster.name}}</h2>
+            <h3>Monster Type: {{gameCtrl.monster.type}}</h3>
+        </content>
+</body>
+
+</html>
