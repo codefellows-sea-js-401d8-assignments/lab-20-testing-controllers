@@ -1,0 +1,16 @@
+@import "_theme";
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body{
+  background-color: $kb-default;
+}
+
+form {
+  background-color: $kb-default;
+  color: $kb-butterbean;
+  border: solid thin $kb-bright;
+}

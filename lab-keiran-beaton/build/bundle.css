@@ -1,0 +1,11 @@
+html, body {
+  width: 100%;
+  height: 100%; }
+
+body {
+  background-color: #7d22f1; }
+
+form {
+  background-color: #7d22f1;
+  color: #40f2e8;
+  border: solid thin #e0f028; }
