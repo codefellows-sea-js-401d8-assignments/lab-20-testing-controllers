@@ -14,7 +14,7 @@ describe('testing player-controller', function(){
 
   it('should create a player', () => {
     console.log('this.scope', this.scope);
-    this.scope.playerCtrl.signUp({name: 'goo'});
+    this.scope.playerCtrl.createPlayer({name: 'goo'});
     expect(this.scope.playerCtrl.player.name).toBe('goo');
   });
 });

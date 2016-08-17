@@ -7,7 +7,7 @@
   </head>
   <body>
     <main ng-controller="PlayerController" ng-init="playerCtrl.player.class='bubbly'">
-      <form ng-submit="playerCtrl.signUp(createPlayerForm.player)"
+      <form ng-submit="playerCtrl.createPlayer(createPlayerForm.player)"
             ng-hide="playerCtrl.isDone"
             novalidate
             name="createPlayerForm">
