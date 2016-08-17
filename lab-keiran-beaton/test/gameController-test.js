@@ -4,8 +4,8 @@ describe('testing game controller', function() {
   beforeEach(() => {
     angular.mock.module('gameApp');
     angular.mock.inject(($controller, $rootScope) => {
-      this.scope = $rootScope.new();
-      new $controller('GameController', {$scope:this.scope});
+      this.scope = $rootScope.$new();
+      new $controller('GameController', {$scope: this.scope});
     });
   });
 
