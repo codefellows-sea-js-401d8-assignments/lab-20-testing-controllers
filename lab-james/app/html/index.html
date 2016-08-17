@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="gameApp">
   <head>
     <title> Lab 20 </title>
     <script src="bundle.js"></script>
@@ -7,8 +7,71 @@
   </head>
 
   <body>
-    <h1> BLAH </h1>
+    <h1> IT'S GAMETIME </h1>
     <main>
+      <h2> Create a Hero </h2>
+      <form ng-controller="GameController"
+            ng-submit="gameControl.createPlayer(createPlayerForm.player)"
+            novalidate name="createPlayerForm">
+
+        <label for="playerName"> Player Name: </label>
+        <input name="playerName" type="text" ng-model="createPlayerForm.player.name">
+        </br>
+
+        <label for="playerFaction"> Player Faction: </label>
+        <select name="playerFaction" ng-model="createPlayerForm.player.faction">
+          <option ng-repeat="faction in gameControl.playerFaction" value={{faction}}>
+            {{ faction }}
+        </select>
+        </br>
+
+        <label for="playerRace"> Player Race: </label>
+        <select name="playerRace" ng-model="createPlayerForm.player.race">
+          <option ng-repeat="race in gameControl.playerRace" value="{{race}}">
+            {{ race }}
+          </option>
+        </select>
+        </br>
+
+        <label for="playerClass"> Player Class: </label>
+        <select name="playerClass" ng-model="createPlayerForm.player.class">
+          <option ng-repeat="class in gameControl.playerClass" value="{{class}}">
+            {{ class }}
+          </option>
+        </select>
+        </br>
+
+        <button type="submit"> Create Hero </button>
+      </form>
+      </br>
+
+      <h2> Create a Monster </h2>
+      <form ng-controller="GameController"
+            ng-submit="gameControl.createMonster(createMonsterForm.monster)"
+            novalidate name="createMonsterForm">
+
+        <label for="monsterName"> Monster Name: </label>
+        <input name="monsterName" type="text" ng-model="createMonsterForm.monster.name">
+        </br>
+
+        <label for="monsterLevel"> Monster Level: </label>
+        <select name="monsterLevel" ng-model="createMonsterForm.monster.level">
+          <option ng-repeat="level in gameControl.monsterLevel" value="{{level}}">
+            {{ level }}
+          </option>
+        </select>
+        </br>
+
+        <label for="monsterType"> Monster Type: </label>
+        <select name="monsterType" ng-model="createMonsterForm.monster.type">
+          <option ng-repeat="type in gameControl.monsterType" value="{{type}}">
+            {{ type }}
+          </option>
+        </select>
+        </br>
+
+        <button type="submit"> Create Monster </button>
+      </form>
     </main>
   </body>
 </html>
