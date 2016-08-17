@@ -3,23 +3,23 @@
 const angular = require('angular');
 const gameApp = angular.module('gameApp');
 
-gameApp('GameController', ['$scope', function($scope) {
+gameApp.controller('GameController', ['$scope', function($scope) {
 
   $scope.gameCtrl = {};
-  $scope.gameCtrl.monster.created = false;
-  $scope.gameCtrl.player.created = false;
-  $scope.gameCtrl.monster.types = ['Werewolf', 'Vampire', 'Dragon', 'Narwhal'];
+  $scope.gameCtrl.monsterCreated = false;
+  $scope.gameCtrl.playerCreated = false;
+  $scope.gameCtrl.monsterTypes = ['Werewolf', 'Vampire', 'Dragon', 'Narwhal'];
 
-  $scope.createMonster = function(monster) {
+  $scope.gameCtrl.createMonster = function(monster) {
     $scope.gameCtrl.monster = monster;
     console.log('monster: ', monster);
-    $scope.gameCtrl.monster.create = true;
+    $scope.gameCtrl.monsterCreated = true;
   };
 
-  $scope.createPlayer = function(player){
+  $scope.gameCtrl.createPlayer = function(player){
     $scope.gameCtrl.player = player;
     console.log('player: ', player);
-    $scope.gameCtrl.player.created = true;
+    $scope.gameCtrl.playerCreated = true;
   };
 
 }]);
