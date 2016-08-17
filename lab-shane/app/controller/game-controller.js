@@ -8,6 +8,7 @@ gameApp('GameController', ['$scope', function($scope) {
   $scope.gameCtrl = {};
   $scope.gameCtrl.monster.created = false;
   $scope.gameCtrl.player.created = false;
+  $scope.gameCtrl.monster.types = ['Werewolf', 'Vampire', 'Dragon', 'Narwhal'];
 
   $scope.createMonster = function(monster) {
     $scope.gameCtrl.monster = monster;

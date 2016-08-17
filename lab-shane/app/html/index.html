@@ -33,7 +33,11 @@
                 <input name="name" type="text" ng-model="monsterForm.monster.name">
 
                 <label for="type">Monster Type:</label>
-                <input name="type" type="text" ng-model="monsterForm.monster.type">
+                <select name="type" ng-model="monsterForm.monster.type">
+                  <option ng-repeat"choice in gameCtrl.monster.types" value="{{choice}}">{{choice}}</option>
+                </select>
+
+                <!-- <input name="type" type="text" ng-model="monsterForm.monster.type"> -->
 
                 <button type="submit">Create Monster Now</button>
             </form>
