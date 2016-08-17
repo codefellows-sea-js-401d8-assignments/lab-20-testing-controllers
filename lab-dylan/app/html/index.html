@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html ng-app="gameApp">
+<head>
+  <title>Character Creation</title>
+  <script src="bundle.js"></script>
+  <link rel="stylesheet" href="bundle.css">
+</head>
+<body>
+  <h1>Create Character</h1>
+  <main ng-controller="GameController">
+
+    <form
+    ng-submit="gameCtrl.createPlayer(createPlayerForm.player)"               ng-hide="gameCtrl.player.isDone"
+    novalidate
+    name="createPlayerForm" >
+
+      <label for="name">Name:</label>
+      <input type="text" name="name" ng-model="createPlayerForm.player.name">
+
+      <label for="class">Class:</label>
+      <select name="class" ng-model="createPlayerForm.player.class">
+          <option ng-repeat="item in gameCtrl.classes" value="{{item}}"> {{item}} </option>
+      </select>
+
+      <label for="affinity">Affinity:</label>
+      <select name="affinity" ng-model="createPlayerForm.player.affinity">
+        <option ng-repeat="item in gameCtrl.affinities" value="{{item}}"> {{item}} </option>
+      </select>
+
+      <button type="submit">Create Player</button>
+    </form>
+
+    <h4>____</h4>
+
+    <form name="createMonsterForm" ng-hide="gameCtrl.monster.isDone" ng-submit="gameCtrl.createMonster(createMonsterForm.monster)" novalidate>
+
+      <label for="name">Name:</label>
+      <input name="name" type="text" ng-model="createMonsterForm.monster.name">
+
+      <label for="race">Race:</label>
+      <input name="race" type="text" ng-model="createMonsterForm.monster.race">
+
+      <label for="affinity">Affinity:</label>
+      <select name="affinity" ng-model="createMonsterForm.monster.affinity">
+        <option ng-repeat="item in gameCtrl.affinities" value="{{item}}">  {{item}} </option>
+      </select>
+
+      <button type="submit">Create Monster</button>
+    </form>
+
+    <section ng-show="gameCtrl.player.isDone" class="newPlayer">
+      <h3>Player: {{gameCtrl.player.name}} </h3>
+      <p>Class: {{gameCtrl.player.class}} </p>
+      <p>Affinity: {{gameCtrl.player.affinity}} </p>
+    </section>
+
+    <section ng-show="gameCtrl.monster.isDone" class="newMonster">
+      <h3>Monster: {{gameCtrl.monster.name}} </h3>
+      <p>Race: {{gameCtrl.monster.race}} </p>
+      <p>Affinity: {{gameCtrl.monster.affinity}} </p>
+    </section>
+
+  </main>
+</body>
+</html>
