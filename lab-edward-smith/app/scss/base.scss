@@ -1,0 +1,12 @@
+@import "/vendor/normalize/_normalize";
+@import "_theme";
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  background-color: $lightblue;
+  color: $lightred;
+}
