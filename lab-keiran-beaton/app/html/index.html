@@ -17,7 +17,7 @@
         <input type="text" name="username" ng-model="createPlayerForm.player.username">
 
         <label for="class">Class:</label>
-        <select name="class" ng-model="createPlayerForm.player.class">
+        <select name="class" ng-model="createPlayerForm.player.class" ng-init="gameCtrl.player.class ='Dentist'">
           <option ng-repeat="item in gameCtrl.classes" value="{{item}}">{{item}}</option>
         </select>
 
@@ -28,7 +28,7 @@
       <form ng-submit="gameCtrl.createMonster(createMonsterForm.monster)" ng-hide="gameCtrl.monsterDone" novalidate name="createMonsterForm">
 
         <label for="type">Monster:</label>
-        <select name="type" ng-model="createMonsterForm.monster.type">
+        <select name="type" ng-model="createMonsterForm.monster.type" ng-init="gameCtrl.monster.type='Wolfman'">
           <option ng-repeat="item in gameCtrl.monsterTypes" value="{{item}}">{{item}}</option>
         </select>
 
