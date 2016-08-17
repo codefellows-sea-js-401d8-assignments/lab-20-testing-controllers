@@ -1,4 +1,4 @@
-@import "vendor/normalize-scss/sass/_normalize.scss";
+@import "vendor/normalize/_normalize.scss";
 @import "_theme";
 
 html, body {
@@ -7,5 +7,20 @@ html, body {
 }
 
 body {
-  background-color: $app-default;
+  background-color: $app-light;
+  color: $app-dark;
+
+  form, section {
+    border: 1px solid $app-dark;
+    margin: 20px;
+    padding: 20px;
+    width: 400px;
+    background-color: $app-secondary;
+  }
+
+  h2 {
+    color: $app-dark;
+    margin: 0 0 10px;
+  }
+
 }
