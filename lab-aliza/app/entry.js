@@ -8,3 +8,4 @@ const angular = require('angular');
 angular.module('demoApp', []);
 
 require('./controller/player-controller');
+require('./controller/monster-controller');
