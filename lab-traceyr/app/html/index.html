@@ -8,6 +8,30 @@
   <body>
     <main ng-controller="GameController">
       <h1>Player Maker</h1>
+
+      <form novalidate ng-submit="gameCtrl.createPlayer()" ng-hide="gameCtrl.playerDone" name="createPlayerForm">
+        <label for="name">Name: </label>
+        <input name="name" type="text" ng-model="gameCtrl.player.name" />
+
+        <label for="email">Email: </label>
+        <input name="email" type="email" ng-model="gameCtrl.player.email" />
+
+        <label for="class">Class: </label>
+        <select name="class" ng-model="gameCtrl.player.class">
+          <option ng-repeat="item in gameCtrl.playerClasses" value="{{item}}">{{item}}</option>
+        </select>
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <section ng-show="gameCtrl.playerDone">
+        <h2>Player: {{gameCtrl.player.name}}</h2>
+        <p>
+          Email: {{gameCtrl.player.email}}
+        </p>
+        <p>
+          Class: {{gameCtrl.player.class}}
+        </p>
+      </section>
     </main>
   </body>
 </html>
