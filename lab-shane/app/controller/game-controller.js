@@ -16,7 +16,7 @@ gameApp.controller('GameController', ['$scope', function($scope) {
     $scope.gameCtrl.monsterCreated = true;
   };
 
-  $scope.gameCtrl.createPlayer = function(player){
+  $scope.gameCtrl.createPlayer = function(player) {
     $scope.gameCtrl.player = player;
     console.log('player: ', player);
     $scope.gameCtrl.playerCreated = true;

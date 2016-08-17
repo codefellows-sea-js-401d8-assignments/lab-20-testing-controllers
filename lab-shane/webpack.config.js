@@ -15,19 +15,16 @@ module.exports = {
     includePaths: `${__dirname}/app/scss/lib`
   },
   module: {
-    loaders: [
-      {
-        test: /\.scss$/,
-        loader: ExtractText.extract('style', 'css!sass!')
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/,
-        query: {
-          presets: ['es2015']
-        }
+    loaders: [{
+      test: /\.scss$/,
+      loader: ExtractText.extract('style', 'css!sass!')
+    }, {
+      test: /\.js$/,
+      loader: 'babel',
+      exclude: /node_modules/,
+      query: {
+        presets: ['es2015']
       }
-    ]
+    }]
   }
 };

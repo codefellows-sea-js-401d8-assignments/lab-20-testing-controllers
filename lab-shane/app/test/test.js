@@ -14,7 +14,7 @@ describe('testing players and monster', function() {
     expect(this.scope.gameCtrl.player.name).toBe('Dumbledore');
   });
 
-  it('should create a monster', () =>{
+  it('should create a monster', () => {
     this.scope.gameCtrl.createMonster({name: 'Werewolf'});
     expect(this.scope.gameCtrl.monster.name).toBe('Werewolf');
   });
