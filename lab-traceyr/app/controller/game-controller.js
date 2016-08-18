@@ -11,7 +11,9 @@ lab20.controller('GameController', ['$scope', function($scope){
   $scope.gameCtrl.monsterDone = false;
 
   $scope.gameCtrl.createPlayer = function(player){
+    console.log(player);
     $scope.gameCtrl.player = player;
+    console.log($scope.gameCtrl.player);
     $scope.gameCtrl.playerDone = true;
   };
 

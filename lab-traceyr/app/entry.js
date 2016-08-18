@@ -5,7 +5,7 @@ require('./scss/base.scss');
 
 const angular = require('angular');
 
-angular.module('demoApp', []);
+angular.module('lab-20', []);
 
 require('./controller/game-controller');
 console.log('Geronimo');
