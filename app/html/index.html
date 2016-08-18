@@ -7,12 +7,7 @@
   </head>
   <body>
     <main ng-controller="PlayerController" ng-init="playerCtrl.class='stealth';playerCtrl.player.name='Johnny'">
-      <form ng-submit ="playerCtrl.signUp(
-      {
-        name: createPlayerForm.player.name,
-        class: createPlayerForm.player.class,
-        email: createPlayerForm.player.email,
-      })"
+      <form ng-submit ="playerCtrl.signUp(createPlayerForm.player)"
       ng-hide ="playerCtrl.isDone"
       novalidate name="createPlayerForm">
         <label for="name">Name:</label>
