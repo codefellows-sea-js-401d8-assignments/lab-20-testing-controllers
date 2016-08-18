@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="lab-20">
+  <head>
+    <title>Lab 20</title>
+    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="bundle.css" />
+  </head>
+  <body>
+    <main ng-controller="GameController">
+      <h1>Player Maker</h1>
+
+      <form novalidate ng-submit="gameCtrl.createPlayer(createPlayerForm.player)" ng-hide="gameCtrl.playerDone" name="createPlayerForm">
+        <label for="name">Name: </label>
+        <input name="name" type="text" ng-model="createPlayerForm.player.name" />
+
+        <label for="email">Email: </label>
+        <input name="email" type="email" ng-model="createPlayerForm.player.email" />
+
+        <label for="class">Class: </label>
+        <select name="class" ng-model="createPlayerForm.player.class">
+          <option ng-repeat="item in gameCtrl.playerClasses" value="{{item}}">{{item}}</option>
+        </select>
+        <button type="submit">Sign Up</button>
+      </form>
+
+      <section ng-show="gameCtrl.playerDone">
+        <h2>Player: {{gameCtrl.player.name}}</h2>
+        <p>
+          Email: {{gameCtrl.player.email}}
+        </p>
+        <p>
+          Class: {{gameCtrl.player.class}}
+        </p>
+      </section>
+
+      <h1>Monster Maker</h1>
+
+      <form novalidate ng-submit="gameCtrl.createMonster(createMonsterForm.monster)" ng-hide="gameCtrl.monsterDone" name="createMonsterForm">
+        <label for="name">Name: </label>
+        <input name="name" type="text" ng-model="createMonsterForm.monster.name" />
+
+        <label for="class">Class: </label>
+        <select name="class" ng-model="createMonsterForm.monster.class">
+          <option ng-repeat="item in gameCtrl.monsterTypes" value="{{item}}">{{item}}</option>
+        </select>
+        <button type="submit">New Monster</button>
+      </form>
+
+      <section ng-show="gameCtrl.monsterDone">
+        <h2>Monster: {{gameCtrl.monster.name}}</h2>
+        <p>
+          Class: {{gameCtrl.monster.class}}
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
