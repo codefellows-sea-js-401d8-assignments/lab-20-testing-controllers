@@ -8,5 +8,3 @@ const angular = require('angular')
 angular.module('demoApp', [])
 
 require('./controller/controller');
-
-console.log('bBitchin!');
