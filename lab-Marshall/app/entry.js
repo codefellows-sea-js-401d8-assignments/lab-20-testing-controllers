@@ -2,7 +2,7 @@
 
 //webpack assets
 
-require('!!file?name=[name].[ext]!./html/index.html');
+require('!!file?name=[name].[ext]!./html/index.html'); //file loader
 require('./scss/base.scss');
 
 //npm modules

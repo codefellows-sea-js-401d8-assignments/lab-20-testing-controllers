@@ -3,20 +3,31 @@
 describe('testing controller', function(){
   beforeEach(() => {
     angular.mock.module('demoApp');
-    angular.mock.inject(($controller, $rootScope) => {
-      this.scope = $rootScope.$new();
-      new $controller('GameController', {$scope: this.scope});
+    angular.mock.inject(($controller) => {
+      this.gameCtrl = $controller('GameController');
     });
   });
 
+  beforeEach(() => {
+    this.gameCtrl.history = [];
+    this.gameCtrl.palyer = {
+      name: 'slug',
+      location: 'roomA'
+    };
+  });
+
+  it('should change rooms', () => {
+    this.gameCtrl.moveDirection('east');
+    expect(this.gameCtrl.player.location).toBe('roomB');
+  });
+
   it('should create new player on signup', () => {
-    console.log('this.scope', this.scope);
-    this.scope.playerCtrl.signUp({name: 'goo'})
-    expect(this.scope.playerCtrl.player.name).toBe('goo');
+    this.playerCtrl.signUp({name: 'goo'});
+    expect(this.playerCtrl.player.name).toBe('goo');
   });
 
   it('should create a new monster on submit', () => {
-    this.scope.monsterCtrl.submit({name: 'Ultra Lord'})
-    expect(this.scope.monsterCtrl.monster.name).toBe('Ultra Lord')
+    this.monsterCtrl.submit({name: 'Ultra Lord'});
+    expect(this.monsterCtrl.monster.name).toBe('Ultra Lord');
   });
 });

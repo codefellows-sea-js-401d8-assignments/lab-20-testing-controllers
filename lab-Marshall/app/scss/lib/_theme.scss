@@ -1,5 +1,5 @@
 $app-dark: #040404;
-$app-light: #D7D9CE;
+$app-light: white;
 $app-eagle: #13505B;
 $app-metallic: #0C7489;
 $app-blue: #119DA4;
@@ -19,11 +19,15 @@ body {
   background-color: $app-dark;
 }
 
-h1, h2, label {
+h1, h2, label{
   color: $app-light;
   display: flex;
-  justify-content: center;
+  justify-content:center;
 }
+
+ ol, li {
+   color: $app-light;
+ }
 
 input, form, button {
   display: flex;
