@@ -32,6 +32,24 @@
           Class: {{gameCtrl.player.class}}
         </p>
       </section>
+
+      <form novalidate ng-submit="gameCtrl.createMonster(createMonsterForm.monster)" ng-hide="gameCtrl.monsterDone" name="createMonsterForm">
+        <label for="name">Name: </label>
+        <input name="name" type="text" ng-model="createMonsterForm.monster.name" />
+
+        <label for="class">Class: </label>
+        <select name="class" ng-model="createMonsterForm.monster.class">
+          <option ng-repeat="item in gameCtrl.monsterTypes" value="{{item}}">{{item}}</option>
+        </select>
+        <button type="submit">New Monster</button>
+      </form>
+
+      <section ng-show="gameCtrl.monsterDone">
+        <h2>Monster: {{gameCtrl.monster.name}}</h2>
+        <p>
+          Class: {{gameCtrl.monster.class}}
+        </p>
+      </section>
     </main>
   </body>
 </html>
