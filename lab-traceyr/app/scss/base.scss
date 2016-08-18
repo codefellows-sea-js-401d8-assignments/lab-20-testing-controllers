@@ -1,11 +1,7 @@
 @import "vendor/normalize-scss/sass/_normalize.scss";
-@import './theme';
+@import './_theme';
 
 body {
   background-color: $app-default;
   color: $app-light;
 }
-
-// form {
-//   background-color: $accent-color;
-// }
