@@ -5,16 +5,16 @@ const demoApp = angular.module('demoApp');
 
 demoApp.controller('GameController', ['$log', GameController]);
 
-GameController.player = {};
-GameController.player.playerIsDone = false;
-
-GameController.monster = {};
-GameController.monster.monsterIsDone = false;
- 
-// GameController.map = {};
-// GameController.map.isDone = false;
-
 function GameController($log){
+
+  this.player = {};
+  this.classes = ['Knight', 'Hacker', 'Pirate', 'Intern'];
+  this.player.playerIsDone = false;
+
+  this.monster = {};
+  this.species = ['Baby Seal', 'Taurus Demon', 'Moose', 'Hell Witch', 'Several Chickens'];
+  this.monster.monsterIsDone = false;
+
 
   this.history = [{ id: 0, text: 'It begins...' }];
 
@@ -22,13 +22,11 @@ function GameController($log){
 
   this.playerSignUp = function(player){
     this.player = player;
-    this.classes = ['Knight', 'Hacker', 'Pirate', 'Intern'];
     this.playerIsDone = true;
   };
 
   this.monsterSignUp = function(monster){
     this.monster = monster;
-    this.species = ['Baby Seal', 'Taurus Demon', 'Moose', 'Hell Witch', 'Several Chickens'];
     this.monsterIsDone = true;
   };
 
