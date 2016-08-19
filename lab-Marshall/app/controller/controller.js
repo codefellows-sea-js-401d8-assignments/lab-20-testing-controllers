@@ -23,17 +23,45 @@ function GameController($log){
   this.playerSignUp = function(player){
     this.player = player;
     this.playerIsDone = true;
+    this.player.location = 'The Lobby';
   };
 
   this.monsterSignUp = function(monster){
     this.monster = monster;
     this.monsterIsDone = true;
+    this.monster.location = 'The Room of Doom';
   };
 
   this.map = require('../lib/map.js');
 
+  this.randomMove = function(){
+    var randomDirection = this.directions[Math.floor(this.directions.length * Math.random())];
+    return randomDirection;
+  };
+
+  this.monsterMove = function(direction){
+    $log.debug('gameCtrl.moveDirection');
+
+    direction = this.randomMove();
+
+    if (this.map[this.monster.location]){
+      let currentLocation = this.map[this.monster.location];
+      $log.log('Monster currentLocation', currentLocation);
+      let nextRoom = currentLocation[direction];
+      $log.log('Monster nextRoom', nextRoom);
+      if (nextRoom !== 'wall') {
+        this.logHistory('The monster has moved... but where?');
+        return;
+      }
+      this.logHistory('You heard a strange thumping sound...?');
+    }
+  };
+
   this.moveDirection = function(direction){
     $log.debug('gameCtrl.moveDirection');
+
+    this.monsterMove();
+
     if (this.map[this.player.location]){
       let currentLocation = this.map[this.player.location];
       $log.log('currentLocation', currentLocation);
@@ -46,7 +74,16 @@ function GameController($log){
       }
       this.logHistory('You hit a wall, dummy.');
     }
+
+    this.monsterInteraction();
   };
+
+  this.monsterInteraction = function(){
+    if (this.player.location === this.monster.location){
+      this.logHistory('Oh no! You found the monster! And... and... it is ');
+    }
+  };
+
 
   this.logHistory = function(info){
     this.history.push({id: this.history.length, text: `${this.player.name}, ${info}`});

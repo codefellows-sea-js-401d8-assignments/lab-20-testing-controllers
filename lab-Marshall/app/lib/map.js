@@ -1,28 +1,28 @@
 'use strict';
 
 module.exports = {
-  roomA: {
+  'The Lobby': {
     north: 'wall',
-    east: 'roomB',
-    south: 'roomC',
+    east: 'The Fun Room',
+    south: 'The Room of Doom',
     west: 'wall'
   },
-  roomB: {
+  'The Fun Room': {
     north: 'wall',
     east: 'wall',
-    south: 'roomD',
-    west: 'roomA'
+    south: 'Moose Room',
+    west: 'The Lobby'
   },
-  roomC: {
-    north: 'roomA',
-    east: 'roomD',
+  'The Room of Doom': {
+    north: 'The Lobby',
+    east: 'Moose Room',
     south: 'wall',
     west: 'wall'
   },
-  roomD: {
-    north: 'roomB',
+  'Moose Room': {
+    north: 'The Fun Room',
     east: 'wall',
     south: 'wall',
-    west: 'roomC'
+    west: 'The Room of Doom'
   }
 };
