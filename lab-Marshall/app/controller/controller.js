@@ -36,6 +36,7 @@ function GameController($log){
 
   this.randomMove = function(){
     var randomDirection = this.directions[Math.floor(this.directions.length * Math.random())];
+    $log.log(randomDirection);
     return randomDirection;
   };
 
@@ -57,10 +58,17 @@ function GameController($log){
     }
   };
 
+  this.monsterInteraction = function(){
+    this.monsterMove();
+    if (this.player.location === this.monster.location){
+      this.logHistory(`Oh no! You found the monster! And... and... it is... ${this.monster.species}?`);
+    }
+  };
+
   this.moveDirection = function(direction){
     $log.debug('gameCtrl.moveDirection');
 
-    this.monsterMove();
+    this.monsterInteraction();
 
     if (this.map[this.player.location]){
       let currentLocation = this.map[this.player.location];
@@ -74,18 +82,9 @@ function GameController($log){
       }
       this.logHistory('You hit a wall, dummy.');
     }
-
-    this.monsterInteraction();
   };
-
-  this.monsterInteraction = function(){
-    if (this.player.location === this.monster.location){
-      this.logHistory('Oh no! You found the monster! And... and... it is ');
-    }
-  };
-
 
   this.logHistory = function(info){
-    this.history.push({id: this.history.length, text: `${this.player.name}, ${info}`});
+    this.history.push({id: this.history.length, text: `${this.player.name} the ${this.player.classes}, ${info}`});
   };
 }
