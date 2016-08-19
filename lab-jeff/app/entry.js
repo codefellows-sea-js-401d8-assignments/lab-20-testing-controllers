@@ -6,7 +6,6 @@ require('./scss/base.scss');
 const angular = require('angular');
 angular.module('testingApp', []);
 
-// require('./controller/monster-controller.js');
 require('./controller/player-controller.js');
 
 console.log('Danger Will Robinson!');

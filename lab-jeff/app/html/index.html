@@ -12,22 +12,22 @@
 
         <div class="form-group">
           <label for="name"> Player name: </label>
-          <input type="text" class="form-control" name="name" ng-model="playerForm.player.name">
+          <input type="text" class="form-control" placeholder="Your players name..." name="name" ng-model="playerForm.player.name">
         </div>
 
         <div class="form-group">
           <label for="class"> Player class: </label>
           <select type="text" class="form-control" name="class" ng-model="playerForm.player.class">
-            <option ng-repeat="item in playerCtrl.class" value="{{item}}"> {{item}}</option>
+            <option ng-repeat="item in playerCtrl.classes" value="{{item}}"> {{item}} </option>
           </select>
         </div>
 
         <button type="submit" class="button btn-default" name="button"> Create Player </button>
 
       </form>
-      <content ng-show="gameCtrl.playerCreated">
-        <h3> Player name: {{gameCtrl.player.name}} </h3>
-        <h3> Player class: {{game.Ctrl.player.class}} </h3>
+      <content ng-show="playerCtrl.playerCreated">
+        <h3> Player name: {{playerCtrl.player.name}} </h3>
+        <h3> Player class: {{playerCtrl.player.class}} </h3>
       </content>
     </main>
   </body>

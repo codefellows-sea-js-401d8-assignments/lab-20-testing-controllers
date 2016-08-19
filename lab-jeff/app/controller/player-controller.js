@@ -3,7 +3,8 @@
 const angular = require('angular');
 const testingApp = angular.module('testingApp');
 
-testingApp.controller('PlayerController', ['scope', function($scope){
+testingApp.controller('PlayerController', ['$scope', function($scope){
+
   $scope.playerCtrl = {};
   $scope.playerCtrl.playerCreated = false;
 
@@ -14,10 +15,10 @@ testingApp.controller('PlayerController', ['scope', function($scope){
     'rogue',
   ];
 
-  $scope.createPlayer = function(player){
+  $scope.playerCtrl.createPlayer = function(player){
     $scope.playerCtrl.player = player;
     console.log('player: ', player);
-    $scope.playerCtrol.playerCreated = true;
+    $scope.playerCtrl.playerCreated = true;
   };
 
 }]);
