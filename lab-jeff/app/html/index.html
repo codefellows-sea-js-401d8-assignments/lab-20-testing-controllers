@@ -6,8 +6,29 @@
     <link rel="stylesheet" href="bundle.css">
   </head>
   <body>
-    <main>
-      <h1> Controller Testing </h1>
+    <main ng-controller="PlayerController">
+      <h1> Player Controller </h1>
+      <form class="form-inline" novalidate name="playerForm" ng-submit="playerCtrl.createPlayer(playerForm.player)" ng-hide="playerCtrl.playerCreated">
+
+        <div class="form-group">
+          <label for="name"> Player name: </label>
+          <input type="text" class="form-control" name="name" ng-model="playerForm.player.name">
+        </div>
+
+        <div class="form-group">
+          <label for="class"> Player class: </label>
+          <select type="text" class="form-control" name="class" ng-model="playerForm.player.class">
+            <option ng-repeat="item in playerCtrl.class" value="{{item}}"> {{item}}</option>
+          </select>
+        </div>
+
+        <button type="submit" class="button btn-default" name="button"> Create Player </button>
+
+      </form>
+      <content ng-show="gameCtrl.playerCreated">
+        <h3> Player name: {{gameCtrl.player.name}} </h3>
+        <h3> Player class: {{game.Ctrl.player.class}} </h3>
+      </content>
     </main>
   </body>
 </html>
