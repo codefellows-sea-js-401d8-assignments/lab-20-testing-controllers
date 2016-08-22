@@ -1,5 +1,5 @@
 // Karma configuration
-// Generated on Thu Aug 18 2016 10:52:32 GMT-0700 (PDT)
+// Generated on Sun Aug 21 2016 18:54:36 GMT-0700 (PDT)
 const webpackConfig = require('./webpack.config.js');
 webpackConfig.entry = {};
 
@@ -33,9 +33,10 @@ module.exports = function(config) {
     webpack: webpackConfig,
     preprocessors: {
       'app/entry.js': ['webpack'],
-      'test/*-test.js': ['babel']
+      'test/*-test.js': ['babel'],
     },
-    
+
+
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
@@ -71,5 +72,5 @@ module.exports = function(config) {
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity
-  })
-}
+  });
+};
