@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="bundle.css">
   </head>
   <body>
-    <main ng-controller="PlayerController" ng-init="playerCtrl.class='stealth';playerCtrl.player.name='Johnny'">
+    <main ng-controller="GameController" ng-init="playerCtrl.player.class='stealth';playerCtrl.player.name='Johnny'">
       <form ng-submit ="playerCtrl.signUp(createPlayerForm.player)"
       ng-hide ="playerCtrl.isDone"
       novalidate name="createPlayerForm">
-        <label for="name">Name:</label>
+        <label for="name">Player:</label>
         <input name="name" type="text" ng-model="createPlayerForm.player.name">
 
         <label for="email"> Email: </label>
@@ -23,12 +23,35 @@
 
         <button type="submit"> Sign up </button>
       </form>
+
+      <form ng-submit ="monsterCtrl.signUp(createMonsterForm.monster)"
+      ng-hide ="monsterCtrl.isDone"
+      novalidate name="createMonsterForm">
+        <label for="name">M-ster:</label>
+        <input name="name" type="text" ng-model="createMonsterForm.monster.name">
+
+        <label for="email"> Email: </label>
+        <input name="email" type="email" ng-model="createMonsterForm.monster.email">
+
+        <label for class="class"></label>
+        <select name="class" ng-model="createMonsterForm.monster.class">
+          <option ng-repeat="item in monsterCtrl.classes" value="{{item}}"> {{item}}</option>
+        </select>
+
+        <button type="submit"> Sign up </button>
+      </form>
+
       <section ng-show="playerCtrl.isDone">
         <h2> player: {{playerCtrl.player.name}} </h2>
         <p>email: {{playerCtrl.player.email}}</p>
         <p> Class: {{playerCtrl.player.class}}</p>
       </section>
+
+      <section ng-show="monsterCtrl.isDone">
+        <h2> monster: {{monsterCtrl.monster.name}} </h2>
+        <p>email: {{monsterCtrl.monster.email}}</p>
+        <p> Class: {{monsterCtrl.monster.class}}</p>
+      </section>
     </main>
-    <!-- <h1> Create Player </h1> -->
   </body>
 </html>
