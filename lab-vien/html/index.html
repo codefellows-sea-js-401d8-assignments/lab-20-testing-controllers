@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="textGame">
+  <head>
+    <title>create player</title>
+    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="bundle.css">
+  </head>
+  <body>
+    <h1>Create Player</h1>
+    <main
+    ng-controller="PlayerController">
+
+      <form
+      novalidate
+      name="createPlayerForm"
+      ng-hide="playerController.isDone"
+      ng-submit="playerController.signUp(createPlayerForm.player)">
+
+        <label for="name">Name</label>
+        <input name="name" type="text" ng-model="createPlayerForm.player.name">
+
+        <label for="email">Email</label>
+        <input name="email" type="text" ng-model="createPlayerForm.player.email">
+
+        <label for='class'>Class</label>
+        <select name="class" ng-model="createPlayerForm.player.class">
+          <option ng-repeat="item in playerController.classes" value="{{item}}">{{ item }}</option>
+        </select>
+
+        <button type='submit'>Hit it</button>
+      </form>
+
+      <section ng-show="playerController.isDone">
+        <h2>Player: {{ playerController.player.name }}</h2>
+        <p>Email: {{ playerController.player.email }}</p>
+        <p>Class: {{ playerController.player.class }}</p>
+      </section>
+
+    </main>
+  </body>
+</html>
