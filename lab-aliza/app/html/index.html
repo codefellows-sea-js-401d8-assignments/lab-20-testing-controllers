@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="gameApp">
+  <head>
+    <title>Create Player</title>
+    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="bundle.css">
+  </head>
+  <body>
+    <main ng-controller="GameController" ng-init="gameCtrl.player.class='bubbly'">
+      <form ng-submit="gameCtrl.createPlayer(createPlayerForm.player)"
+            ng-hide="gameCtrl.player.isDone"
+            novalidate
+            name="createPlayerForm">
+        <h2>Create Player:</h2>
+        <label for="name">Name:</label>
+        <input name="name" type="text" ng-model="createPlayerForm.player.name"></input>
+
+        <label for="class">Class:</label>
+        <select name="class" ng-model="createPlayerForm.player.class">
+          <option ng-repeat="item in gameCtrl.player.classes" val="{{item}}">{{item}}</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+      <form ng-submit="gameCtrl.createMonster(createMonsterForm.monster)"
+            ng-hide="gameCtrl.monster.isDone"
+            novalidate
+            name="createMonsterForm">
+        <h2>Create Monster:</h2>
+        <label for="name">Name:</label>
+        <input name="name" type="text" ng-model="createMonsterForm.monster.name"></input>
+
+        <label for="class">Class:</label>
+        <select name="class" ng-model="createMonsterForm.monster.class">
+          <option ng-repeat="item in gameCtrl.monster.classes" val="{{item}}">{{item}}</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+      <section ng-show="gameCtrl.player.isDone">
+        <h2>Player:</h2>
+        <p>Name: {{gameCtrl.player.name}}</p>
+        <p>Class: {{gameCtrl.player.class}}</p>
+      </section>
+      <section ng-show="gameCtrl.monster.isDone">
+        <h2>Monster:</h2>
+        <p>Name: {{gameCtrl.monster.name}}</p>
+        <p>Class: {{gameCtrl.monster.class}}</p>
+      </section>
+    </main>
+  </body>
+</html>
