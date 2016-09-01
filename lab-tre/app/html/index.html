@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="bundle.css">
   </head>
   <body>
-    <main ng-controller="GameController" ng-init="gameCtrl.player.class='bubbly'">
-      <form ng-submit="gameCtrl.createPlayer(createPlayerForm.player)"
+    <main ng-controller="GameController" ng-init="gameCtrl.player.class='superHero'">
+      <form ng-submit="gameCtrl.playerCreator(createPlayerForm.player)"
             ng-hide="gameCtrl.player.isDone"
             novalidate
             name="createPlayerForm">
@@ -22,17 +22,17 @@
 
         <button type="submit">Submit</button>
       </form>
-      <form ng-submit="gameCtrl.createMonster(createMonsterForm.monster)"
-            ng-hide="gameCtrl.monster.isDone"
+      <form ng-submit="gameCtrl.villainCreator(createVillainForm.villain)"
+            ng-hide="gameCtrl.villain.isDone"
             novalidate
-            name="createMonsterForm">
+            name="createVillainForm">
         <h2>Create Monster:</h2>
         <label for="name">Name:</label>
-        <input name="name" type="text" ng-model="createMonsterForm.monster.name">
+        <input name="name" type="text" ng-model="createVillainForm.villain.name">
 
         <label for="class">Class:</label>
-        <select name="class" ng-model="createMonsterForm.monster.class">
-          <option ng-repeat="item in gameCtrl.monster.classes" val="{{item}}">{{item}}</option>
+        <select name="class" ng-model="createVillainForm.villain.class">
+          <option ng-repeat="item in gameCtrl.villain.classes" val="{{item}}">{{item}}</option>
         </select>
 
         <button type="submit">Submit</button>
@@ -42,10 +42,10 @@
         <p>Name: {{gameCtrl.player.name}}</p>
         <p>Class: {{gameCtrl.player.class}}</p>
       </section>
-      <section ng-show="gameCtrl.monster.isDone">
-        <h2>Monster:</h2>
-        <p>Name: {{gameCtrl.monster.name}}</p>
-        <p>Class: {{gameCtrl.monster.class}}</p>
+      <section ng-show="gameCtrl.villain.isDone">
+        <h2>Villain:</h2>
+        <p>Name: {{gameCtrl.villain.name}}</p>
+        <p>Class: {{gameCtrl.villain.class}}</p>
       </section>
     </main>
   </body>
