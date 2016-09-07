@@ -12,7 +12,6 @@
     </header>
 
     <main ng-controller="GameController as gameCtrl">
-
         <h2 ng-hide="gameCtrl.playerIsDone">Select your player character!</h2>
         <form novalidate ng-submit="gameCtrl.playerSignUp(createPlayerForm.player)" ng-hide="gameCtrl.playerIsDone" name="createPlayerForm">
           <label for="name">Name:</label>
@@ -27,7 +26,6 @@
               {{item}}
             </option>
           </select>
-
           <button type="submit"> Sign Up </button>
         </form>
 
@@ -35,7 +33,6 @@
         <form novalidate ng-submit="gameCtrl.monsterSignUp(createMonsterForm.monster)" ng-hide="gameCtrl.monsterIsDone" name="createMonsterForm">
           <label for="name">Name:</label>
           <input type="text" name="name" ng-model="createMonsterForm.monster.name">
-
           <label for="species">Species:</label>
           <select name="species" ng-model="createMonsterForm.monster.species" ng-init="createMonsterForm.monster.species='Several Chickens'">
             <option ng-repeat="item in gameCtrl.species" value="{{item}}">
@@ -58,12 +55,7 @@
           <h3>Monster: {{ gameCtrl.monster.name }} </h2>
           <p>Species: {{ gameCtrl.monster.species }}</p>
         </section>
-
-
-
-
-
-
+        
       <form name="gamePadForm" novalidate>
         <label for="direction"> Direction: </label>
         <select name="direction" ng-model="gamePadForm.direction">
