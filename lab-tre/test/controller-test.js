@@ -19,8 +19,8 @@ describe('testing my game-controller', function(){
   });
 
   it('villain should be created', () => {
-    this.scope.gameCtrl.createMonster({name: 'dr.evil', class: 'catPerson'});
-    expect(this.scope.gameCtrl.monster.name).toBe('dr.evil');
-    expect(this.scope.gameCtrl.monster.class).toBe('catPerson');
+    this.scope.gameCtrl.villainCreator({name: 'dr.evil', class: 'catPerson'});
+    expect(this.scope.gameCtrl.villain.name).toBe('dr.evil');
+    expect(this.scope.gameCtrl.villain.class).toBe('catPerson');
   });
 });
