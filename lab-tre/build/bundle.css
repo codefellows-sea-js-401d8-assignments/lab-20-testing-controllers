@@ -1,0 +1,16 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: gray;
+  color: black; }
+
+form, section {
+  border: 1px solid black;
+  margin: 20px;
+  padding: 20px;
+  width: 400px;
+  background-color: white; }
+
+h2 {
+  color: black;
+  margin: 0 0 10px; }
