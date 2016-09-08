@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="gameApp">
+  <head>
+    <title>Player Game</title>
+    <script src="bundle.js"></script>
+    <link rel="stylesheet" href="bundle.css">
+  </head>
+  <body>
+    <main ng-controller="GameController" ng-init="gameCtrl.player.class='superHero'">
+      <form ng-submit="gameCtrl.playerCreator(createPlayerForm.player)"
+            ng-hide="gameCtrl.player.isDone"
+            novalidate
+            name="createPlayerForm">
+        <h2>Create Player:</h2>
+        <label for="name">Name:</label>
+        <input name="name" type="text" ng-model="createPlayerForm.player.name">
+
+        <label for="class">Hero Id:</label>
+        <select name="class" ng-model="createPlayerForm.player.class">
+          <option ng-repeat="item in gameCtrl.player.classes" val="{{item}}">{{item}}</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+      <form ng-submit="gameCtrl.villainCreator(createVillainForm.villain)"
+            ng-hide="gameCtrl.villain.isDone"
+            novalidate
+            name="createVillainForm">
+        <h2>Create Villain:</h2>
+        <label for="name">Name:</label>
+        <input name="name" type="text" ng-model="createVillainForm.villain.name">
+
+        <label for="class">Villian Id:</label>
+        <select name="class" ng-model="createVillainForm.villain.class">
+          <option ng-repeat="item in gameCtrl.villain.classes" val="{{item}}">{{item}}</option>
+        </select>
+
+        <button type="submit">Submit</button>
+      </form>
+      <section ng-show="gameCtrl.player.isDone">
+        <h2>Player:</h2>
+        <p>Name: {{gameCtrl.player.name}}</p>
+        <p>Class: {{gameCtrl.player.class}}</p>
+      </section>
+      <section ng-show="gameCtrl.villain.isDone">
+        <h2>Villain:</h2>
+        <p>Name: {{gameCtrl.villain.name}}</p>
+        <p>Class: {{gameCtrl.villain.class}}</p>
+      </section>
+    </main>
+  </body>
+</html>
