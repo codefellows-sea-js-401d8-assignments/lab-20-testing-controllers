@@ -1,0 +1,22 @@
+@import "vendor/normalize-scss/sass/_normalize.scss";
+@import "_theme";
+
+html, body {
+  height: 100%;
+  width: 100%;
+  background-color: $app-primary;
+  color: $app-light;
+}
+
+form, section {
+  border: 2px solid $app-light;
+  margin: 0 auto;
+  padding: 60px;
+  width: 400px;
+  background-color: $app-secondary;
+}
+
+h2 {
+  color: $app-dark;
+  margin: 0 0 10px;
+}
